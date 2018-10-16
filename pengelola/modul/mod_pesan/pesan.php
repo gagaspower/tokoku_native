@@ -1,0 +1,51 @@
+<?php
+error_reporting(0);
+session_start();
+if(empty($_SESSION['email']) && empty($_SESSION['password'])){
+    echo "<center>Anda tidak berhak mengakses halaman ini<br />
+            <a href='index.php'><b>Login dulu!!</b></center>";
+}else{
+?>
+<div class="box-header">
+<h3 class="box-title">Pesan</h3>
+</div>
+<?php include "../config/status.php";?>   
+<div class="box">
+  <div class="box-body">
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Subjek</th>
+            <th>Status</th>
+            <th></th>
+      </tr>
+      </thead>
+      <tbody>
+    <?php
+    $sql = mysql_query("SELECT * FROM pesan ORDER BY id DESC");
+    while($r = mysql_fetch_array($sql)){
+    ?>
+    <tr>
+    <td><?php echo $r['nama'];?></td>
+    <td><?php echo $r['email'];?></td>
+    <td><?php echo $r['subjek'];?></td>
+    <td>
+        <?php if($r['status'] == '00'){ ?>
+        <span class="label label-info ">Belum Dibaca</span>
+        <?php } else { ?>
+        <span class="label label-warning">Sudah Dibalas</span>
+        <?php } ?>
+    </td>
+    <td>
+        <button type="button" class="btn btn-xs btn-info" title="Balas" onclick="window.location.href='?modul=balaspesan&id=<?php echo $r['id'];?>'"><i class="fa fa-paper-plane-o"></i></button>
+        <button type="button" class="btn btn-xs btn-danger" title="Hapus Pesan" onclick="window.location.href='?modul=aksipesan&act=hapus&id=<?php echo $r['id'];?>'"><i class="fa fa-trash"></i></button>
+    </td>
+      </tr>
+      <?php  } ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+<?php } ?>

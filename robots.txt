@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://tokoku.yatoreh.com/sitemap.xml

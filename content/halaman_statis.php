@@ -1,0 +1,43 @@
+<?php
+error_reporting(0);
+//Deteksi hanya bisa diinclude, tidak bisa langsung dibuka (direct open)
+if(count(get_included_files())==1){echo"<meta http-equiv='refresh' content='0; url=http://'".$_SERVER['HTTP_HOST']."'>"; exit("Direct access not permitted.");}
+$query = mysql_query("SELECT * FROM halamanstatis WHERE judul_seo ='".$val->validasi($_GET['judul_seo'],'xss')."'");
+$cek=mysql_num_rows($query);
+if($cek < 1){
+echo "<div class='alert alert-warning'>
+        <strong>Oops...</strong> Halaman yang anda cari tidak ditemukan.
+    </div>";
+}else{
+$r=mysql_fetch_array($query);
+$isihalaman = htmlspecialchars_decode($r['isi_halaman']); 
+?>  
+  <div class="main-container col2-right-layout">
+    <div class="main container">
+      <div class="row">
+        <div class="col-sm-9 wow bounceInUp animated">
+          <div class="col-main">
+            <div class="blog-wrapper" id="main">
+              <div class="site-content" id="primary">
+                <div role="main" id="content">
+                  <article class="blog_entry clearfix">
+                      <header class="blog_entry-header clearfix">
+                        <div class="blog_entry-header-inner">
+                          <h2 class="blog_entry-title"><?php echo $r['judul'];?></h2>
+                        </div>
+                      </header>
+                    <div class="entry-content">
+                      <div class="entry-content">
+                        <p><?php echo $isihalaman;?></p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<?php } ?>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?> 
+<rss version="2.0"> 
+<channel> 
+<title>$i[nama_website] Feed</title> 
+<link>$i[url_website]</link> 
+<description>Feed Description</description> 
+<language>en-us</language><item>
+                 <title>Produk kelima</title>
+                 <link>http://tokoku.yatoreh.com/produk/detail/produk-kelima</link>
+                 <description>Lorem Ipsum is simply dummy text of the printing and typesetting industry</description>
+                 </item><item>
+                 <title>nama produk lagi</title>
+                 <link>http://tokoku.yatoreh.com/produk/detail/nama-produk-lagi</link>
+                 <description>asdf asdfasdfasdf asdfasdfasdf asdfasdfasdf asdfasdfasdfasd</description>
+                 </item><item>
+                 <title>Produk ketiga</title>
+                 <link>http://tokoku.yatoreh.com/produk/detail/produk-ketiga</link>
+                 <description>Lorem Ipsum is simply dummy text</description>
+                 </item><item>
+                 <title>produk kedua</title>
+                 <link>http://tokoku.yatoreh.com/produk/detail/produk-kedua</link>
+                 <description>asdf asdfasdfasdfasdf asdfasdfa sdfasdfa sdf asdf asd</description>
+                 </item><item>
+                 <title>update input produk</title>
+                 <link>http://tokoku.yatoreh.com/produk/detail/update-input-produk</link>
+                 <description>asdf asdf asdfasd fasd</description>
+                 </item></channel></rss>
